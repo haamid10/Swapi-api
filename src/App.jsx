@@ -5,29 +5,34 @@ import Films from './Components/Films'
 
 
 const App = () => {
-  const [starwars , setStarwars] = useState()
+  const [starWars , setStarWars] = useState([])
 
-  console.log(starwars)
+  console.log(starWars)
   
   useEffect (()=>{
-    const getStarwars =()=>{
+    const getStarWars =()=>{
       axios
-      .get('https://swapi.dev/api/people')
+      .get('https://jsonplaceholder.typicode.com/posts')
       .then( res => {
-        // console.log(res.data)
-        setStarwars(res.data)
+        // console.log(res.data )
+        setStarWars(res.data)
       }).catch(error =>{
         console.log(error)
       })
     }
-    getStarwars()
+    getStarWars()
   },[])
+
+
   return (
-
-
     <div>
-      <h1>daarax</h1>
-</div>
+      <h2 className='text-3xl'>posts</h2>
+      {starWars.map(film=>{
+        <h1>{film.title}</h1>
+        // console.log(film.title)
+       
+      })}
+    </div>
   )
 }
 

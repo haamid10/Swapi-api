@@ -1,13 +1,10 @@
 import React from 'react'
 
-const Films = ({star}) => {
+const Films = ({film}) => {
+  console.log(film)
   return (
     <div>
-      {star.map((film)=>{
-        <div>
-          <h1>{film.title}</h1>
-        </div>
-      })}
+      <h2>{film.title}</h2>
     </div>
   )
 }
